@@ -9,15 +9,13 @@ import ffmpeg
 ydl_opts = {'format': 'bestaudio', 'outtmpl': './input/' + 'CHATGPT'+'_.mp4'}
 #format : 品質 best 映像のみ bestvideo 音声のみ bestaudio，outtmpl : 出力形式
 
+#def Whisper():
+global model
+print('model load start')
+model = whisper.load_model('tiny') #tiny, base, small, medium, large  
+print('model load end')
+
 app = Flask(__name__)
-
-def Whisper():
-    global model
-    print('model load start')
-    model = whisper.load_model('tiny') #tiny, base, small, medium, large  
-    print('model load end')
-    
-
 
 @app.route('/')
 def index():
