@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div style="text-align: center">
+    <p>
+        <input type="radio" name="input" value="動画ファイルまたは音声ファイル" onclick="viewChange()">動画ファイルまたは音声ファイル
+        <input type="radio" name="input" value="動画URL" onclick="viewChange()">動画URL
+    </p>
+    <div id="Box1" class="in_1" style="display:none">
+        <form action="/result_1" method="post" enctype="multipart/form-data" >
+            <input type="file" name="file" accept="audio/*, video/*" >
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    <div id="Box2" class="in_1" style="display:none">
+        <form action="/result_2" method="post" >
+            <label for="url">動画のURLを入力してください</label>
+            <input type="url" name="url" id="url"placeholder="https://example.com" pattern="https://.*" size="30"required>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
